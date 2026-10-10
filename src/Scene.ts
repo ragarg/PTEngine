@@ -1,8 +1,8 @@
 import { type UUID } from "crypto";
 import Camera from "./Camera";
 import { DEFAUT_MATERIAL, Material } from "./Material";
-import { createCube, createPlane, createSphere, Object } from "./Object";
-import { loadModel } from "./Parser";
+import { createPlane, createSphere, Object } from "./Object";
+// import { loadModel } from "./Parser";
 import { vec3 } from "gl-matrix";
 import type Mesh from "./MeshData";
 import type Image from "./Image";

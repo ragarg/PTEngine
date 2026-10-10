@@ -3,7 +3,7 @@ import Mesh, { createCubeMesh } from "./MeshData";
 import { DEFAUT_MATERIAL, Material } from "./Material";
 import { Sphere } from "./primitives/Sphere";
 import { Plane } from "./primitives/Plane";
-import { mat4, quat, vec3, vec4 } from "gl-matrix";
+import { mat4, quat, vec3 } from "gl-matrix";
 
 type Primitive =
     | Plane

@@ -282,7 +282,7 @@ function collectMeshInstances(
       const primitives = meshPrimitiveIndices[node.mesh];
       if (!primitives) throw new Error(`glTF node references missing mesh ${node.mesh}.`);
       for (const meshIndex of primitives) {
-        instances.push({ meshIndex, transform: worldTransform });
+        instances.push({ meshIndex, transform: worldTransform, name: `node_${nodeIndex}` });
       }
     }
 
@@ -357,15 +357,15 @@ async function loadTextures(asset: GltfAsset): Promise<Image[]> {
       mime = meta.split(';')[0];
       const b64 = img.uri.slice(comma + 1);
       const bin = atob(b64);
-      const buf = new Uint8Array(bin.length);
+      const buf = new Uint8Array(bin.length); 
       for (let i = 0; i < bin.length; i++) buf[i] = bin.charCodeAt(i);
-      data = buf.buffer;
+      data = { data: buf.buffer, width: 0, height: 0 };
     } else if (img.uri) {
       // внешний файл — gltf-loader-ts его уже скачал, но сырых байтов
       // у нас нет. Придётся скачать ещё раз.
       try {
         const res = await fetch(new URL(img.uri, asset.gltf.uri ?? '').href);
-        data = await res.arrayBuffer();
+        data = { data: await res.arrayBuffer(), width: 0, height: 0 };
         mime = res.headers.get('content-type') ?? mime;
       } catch {
         console.warn(`[gltf] не удалось загрузить image.uri=${img.uri}`);

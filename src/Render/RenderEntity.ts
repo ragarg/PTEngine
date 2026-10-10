@@ -1,5 +1,4 @@
 import Shader from './Shader';
-import { TextureArrayWrapper } from './Texture';
 import {type dataShader, type dataPTShader} from './ShaderSystem';
 import type Render from './Render';
 import type { GpuData, GpuSceneData } from '../Pack';

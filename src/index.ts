@@ -1,5 +1,10 @@
 export { default as Render } from './Render/Render';
-export type { RenderEntity, SceneData } from './Render/Render';
+export { type SceneData } from './Render/Render';
+export { default as RenderEntity} from './Render/RenderEntity';
+export { createPTRenderEntity} from './Render/RenderEntity';
+export { default as ShaderSystem } from './Render/ShaderSystem';
+export type { dataShader, dataPTShader } from './Render/ShaderSystem';
+export { default as PBRTextures } from './Render/Render';
 export { default as App } from './App';
 export { Scene } from './Scene';
 export type { EmissiveObjectRef } from './Scene';
