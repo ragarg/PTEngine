@@ -1,0 +1,30 @@
+{
+  "name": "@tsraycaster/pt-engine",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "./dist/pt-engine.js",
+  "module": "./dist/pt-engine.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/pt-engine.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json && vite build"
+  },
+  "dependencies": {
+    "gl-matrix": "^3.4.4",
+    "gltf-loader-ts": "^0.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.19.1",
+    "@webgpu/types": "^0.1.74",
+    "typescript": "~6.0.2",
+    "vite": "^8.3.0"
+  }
+}
